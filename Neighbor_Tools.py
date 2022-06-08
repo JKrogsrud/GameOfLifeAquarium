@@ -21,11 +21,11 @@ def generate_neighborhood(coordinate, min_distance, max_distance):
         while coord[0] > 0:
             coord = (coord[0]-1, coord[1]-1)
             neighborhood.append(coord)
-        #coord should now point 'south'
+        # coord should now point 'south'
         while coord[1] < 0:
             coord = (coord[0] - 1, coord[1] + 1)
             neighborhood.append(coord)
-        #coord should no point 'west'
+        # coord should no point 'west'
         while coord[0] < 0:
             coord = (coord[0]+1, coord[1]+1)
             neighborhood.append(coord)
