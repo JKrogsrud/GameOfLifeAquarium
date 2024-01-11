@@ -5,13 +5,13 @@ import Neighbor_Tools
 
 class Aquarium():
 
-    # instance attributes
+    # Instance attributes
     # row is number of rows
     # column is number of columns
     # birth is a tuple of values representing how many neighbors are required to birth a new cell
     # survive is a tuple of values representing how many neighbors are required for a live cell to survive
     # density is the reciprocal of the expected life of an initial cell during population
-    def __init__(self, row=20, column=20, birth=tuple(3), survive=tuple(3, 4), life_density=2, n_dist_min=1, n_dist_max=1):
+    def __init__(self, row=20, column=20, birth=[3], survive=[3, 4], life_density=2, n_dist_min=1, n_dist_max=1):
         self.row = row
         self.column = column
         self.grid = []
@@ -79,7 +79,7 @@ class Aquarium():
 
     def count_live_neighbors(self, x, y):
         count = 0
-        neighbors = Neighbor_Tools.generate_neighborhood(coordinate=(x,y), min_distance=self.n_dist_min, max_distance=self.n_dist_max)
+        neighbors = Neighbor_Tools.generate_neighborhood(coordinate=(x, y), min_distance=self.n_dist_min, max_distance=self.n_dist_max)
         color = (0, 0, 0)
         for n in neighbors:
             try:

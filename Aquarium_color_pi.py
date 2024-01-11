@@ -38,7 +38,16 @@ class PracticeBoard(SampleBase):
         #  Initialize the canvas
         offset_canvas = matrix.CreateFrameCanvas()
 
-        aquarium = Aquarium_modified.Aquarium(row=32, column=32, birth=(3,6), survive=(2,3), life_density=2, n_dist_min=1, n_dist_max=2)
+        row = 32
+        column = 32
+        size = (row,column)
+        birth=[2,3,6]
+        survive = [6, 7, 8]
+        life_density = 2
+        n_dist_min = 1
+        n_dist_max = 2
+
+        aquarium = Aquarium_modified.Aquarium(row, column, birth, survive, life_density, n_dist_min, n_dist_max)
         aquarium.populate()
         timer = time.time()
         changed = True
@@ -46,11 +55,11 @@ class PracticeBoard(SampleBase):
         while True:
             current_time = time.time()
             if current_time - timer > 60*3:  # It's been running 3 minutes so restart
-                aquarium = Aquarium_modified.Aquarium(row=32, column=32, birth=(3,6), survive=(2,3), life_density=2, n_dist_min=1, n_dist_max=2)
+                aquarium = Aquarium_modified.Aquarium(row, column, birth, survive, life_density, n_dist_min, n_dist_max)
                 aquarium.populate()
                 timer = time.time()
             if not changed:
-                aquarium = Aquarium_modified.Aquarium(row=32, column=32, birth=(3,6), survive=(2,3), life_density=2, n_dist_min=1, n_dist_max=2)
+                aquarium = Aquarium_modified.Aquarium(row, column, birth, survive, life_density, n_dist_min, n_dist_max)
                 aquarium.populate()
                 timer = time.time()
             im = Image.new("RGB", size)

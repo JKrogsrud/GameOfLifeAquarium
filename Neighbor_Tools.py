@@ -14,19 +14,19 @@ def generate_neighborhood(coordinate, min_distance, max_distance):
     while dist <= max_distance:
         # coord points 'north' first
         coord = (coordinate[0], coordinate[1] + dist)
-        while coord[1] > 0:
-            coord = (coord[0]+1,coord[1]-1)
+        while coord[1] > coordinate[1]:
+            coord = (coord[0]+1, coord[1]-1)
             neighborhood.append(coord)
         # coord should now be pointing 'east'
-        while coord[0] > 0:
+        while coord[0] > coordinate[0]:
             coord = (coord[0]-1, coord[1]-1)
             neighborhood.append(coord)
         # coord should now point 'south'
-        while coord[1] < 0:
-            coord = (coord[0] - 1, coord[1] + 1)
+        while coord[1] < coordinate[1]:
+            coord = (coord[0]-1, coord[1]+1)
             neighborhood.append(coord)
         # coord should no point 'west'
-        while coord[0] < 0:
+        while coord[0] < coordinate[0]:
             coord = (coord[0]+1, coord[1]+1)
             neighborhood.append(coord)
         dist += 1
